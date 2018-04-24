@@ -4,7 +4,10 @@ import CreatePost from "./CreatePost";
 
 class App extends Component {
   state = {
-    todos: [{ text: "Testitem", created: 43434 }]
+    todos: [
+      { text: "Testitem", created: 43434 },
+      { text: "Testitem2", created: 43434545 }
+    ]
   };
 
   addToDo = todoText => {
