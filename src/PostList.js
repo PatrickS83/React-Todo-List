@@ -1,10 +1,11 @@
 import React from "react";
+import ToDoItem from "./ToDoItem";
 
 const PostList = props => {
   return (
     <div>
       <ul className="card">
-        <li>This is a post</li>
+        <ToDoItem />
       </ul>
     </div>
   );
