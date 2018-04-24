@@ -3,9 +3,9 @@ import ToDoItem from "./ToDoItem";
 
 const PostList = props => {
   return (
-    <div>
-      <ul className="card">
-        <ToDoItem />
+    <div className="card">
+      <ul className="collection">
+        <ToDoItem todoList={props.todoList} />
       </ul>
     </div>
   );
