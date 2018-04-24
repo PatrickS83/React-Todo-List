@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 
-
- class CreatePost extends Component {
-   state = {
-     inputValue:''
-   }
-   Change = e => {
-     this.setState(
-       {
-         [e.target.name]: e.target.value
-       });
-
-   };
+class CreatePost extends Component {
+  state = {
+    inputValue: ""
+  };
+  Change = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
   render() {
-    return <div className="row" >
-              <div className="input-field col s10">
-                    <input name = "inputValue" placeholder = "write what to you do " value ={this.state.inputValue}  onChange = { e => this.Change(e)}/>
-              </div>  
-             <div className="input-field col s2">    
-             < button className="waves-effect waves-light btn" >button</button>
-            </div>
-     
-          </div>;
+    return (
+      <div className="row">
+        <div className="input-field col s10">
+          <input
+            name="inputValue"
+            placeholder="write what to you do "
+            value={this.state.inputValue}
+            onChange={e => this.Change(e)}
+          />
+        </div>
+        <div className="input-field col s2">
+          <button
+            className="waves-effect waves-light btn"
+            onClick={() => this.props.addToDo(this.state.inputValue)}
+          >
+            button
+          </button>
+        </div>
+      </div>
+    );
   }
 }
 

@@ -3,14 +3,14 @@ import "./ToDoItem.css";
 
 class ToDoItem extends Component {
   render() {
-    return this.props.todoList.map(todo => (
-      <li key={todo.created} className="collection-item todo-item">
-        <span>{todo.text}</span>
+    return (
+      <li className="collection-item todo-item">
+        <span>{this.props.todoText}</span>
         <button className="waves-effect waves-light btn btn-small todo-delete">
           Delete
         </button>
       </li>
-    ));
+    );
   }
 }
 

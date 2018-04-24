@@ -5,7 +5,9 @@ const PostList = props => {
   return (
     <div className="card">
       <ul className="collection">
-        <ToDoItem todoList={props.todoList} />
+        {props.todoList.map(todo => (
+          <ToDoItem key={todo.created} todoText={todo.text} />
+        ))}
       </ul>
     </div>
   );
