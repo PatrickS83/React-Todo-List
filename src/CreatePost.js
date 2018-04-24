@@ -10,6 +10,15 @@ class CreatePost extends Component {
     });
   };
 
+  handleButtonClick = () => {
+   this.props.addToDo(this.state.inputValue)
+   this.setState(
+     {
+       inputValue:''
+     }
+   )
+  } 
+
   render() {
     return (
       <div className="row">
@@ -24,7 +33,7 @@ class CreatePost extends Component {
         <div className="input-field col s2">
           <button
             className="waves-effect waves-light btn"
-            onClick={() => this.props.addToDo(this.state.inputValue)}
+            onClick={this.handleButtonClick}
           >
             button
           </button>
