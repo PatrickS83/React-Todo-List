@@ -6,7 +6,10 @@ class ToDoItem extends Component {
     return (
       <li className="collection-item todo-item">
         <span>{this.props.todoText}</span>
-        <button className="waves-effect waves-light btn btn-small todo-delete">
+        <button
+          className="waves-effect waves-light btn btn-small todo-delete"
+          onClick={() => this.props.deleteToDo(this.props.created)}
+        >
           Delete
         </button>
       </li>
