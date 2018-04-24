@@ -15,10 +15,12 @@ import React, { Component } from "react";
 
   render() {
     return <div className="row" >
-
-            <input name = "inputValue" placeholder = "write what to you do " value ={this.state.inputValue}  onChange = { e => this.Change(e)}/>
-            < button className="waves-effect waves-light btn" >button</button>
-
+              <div className="input-field col s10">
+                    <input name = "inputValue" placeholder = "write what to you do " value ={this.state.inputValue}  onChange = { e => this.Change(e)}/>
+              </div>  
+             <div className="input-field col s2">    
+             < button className="waves-effect waves-light btn" >button</button>
+            </div>
      
           </div>;
   }
