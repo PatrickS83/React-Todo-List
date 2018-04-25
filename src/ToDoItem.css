@@ -5,6 +5,15 @@
   padding: 10px;
 }
 
+.todo-item-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item-buttons {
+  width: 80px;
+}
+
 .todo-item i {
   cursor: pointer;
 }

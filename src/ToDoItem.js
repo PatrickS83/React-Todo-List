@@ -10,20 +10,29 @@ const ToDoItem = props => (
       Done
     </button>
     <span> {props.todoText}</span>
-    <div className="todo-item">
-      <button
-        className="waves-effect waves-light btn btn-small todo-delete"
-        onClick={() => props.deleteToDo(props.created)}
-      >
-        Delete
-      </button>
-      <i className="material-icons">arrow_downward</i>
+    <div className="todo-item-buttons">
       <i
         className="material-icons"
-        onClick={() => props.moveItemUp(props.created)}
+        onClick={() => props.deleteToDo(props.created)}
       >
-        arrow_upward
+        delete
       </i>
+      {props.index !== props.todoList.length - 1 ? (
+        <i
+          className="material-icons"
+          onClick={() => props.moveItem(props.created, "down")}
+        >
+          arrow_downward
+        </i>
+      ) : null}
+      {props.index ? (
+        <i
+          className="material-icons"
+          onClick={() => props.moveItem(props.created, "up")}
+        >
+          arrow_upward
+        </i>
+      ) : null}
     </div>
   </li>
 );
