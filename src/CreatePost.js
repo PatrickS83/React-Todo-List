@@ -8,17 +8,15 @@ class CreatePost extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    this.props.searchBtn(this.state.inputValue)
+    this.props.searchBtn(this.state.inputValue);
   };
 
   handleButtonClick = () => {
-   this.props.addToDo(this.state.inputValue)
-   this.setState(
-     {
-       inputValue:''
-     }
-   )
-  } 
+    this.props.addToDo(this.state.inputValue);
+    this.setState({
+      inputValue: ""
+    });
+  };
 
   render() {
     return (
@@ -38,7 +36,6 @@ class CreatePost extends Component {
           >
             Add
           </button>
-
         </div>
       </div>
     );

@@ -28,7 +28,7 @@ class App extends Component {
     const todos = [...this.state.todos];
     const index = todos.findIndex(todo => todo.created === todoID);
     todos.splice(index, 1);
-    this.setState({todos });
+    this.setState({ todos });
   };
 
   markAsDone = todoID => {
@@ -38,14 +38,11 @@ class App extends Component {
     this.setState({ todos });
   };
 
-  searchBtn = todoText =>{
-    const todos = [ ...this.state.todos];
-    const filteredTodos = todos.filter(i => i.text.includes(todoText))
-    this.setState({filteredTodos})
-    }
-
-
-  
+  searchBtn = todoText => {
+    const todos = [...this.state.todos];
+    const filteredTodos = todos.filter(i => i.text.includes(todoText));
+    this.setState({ filteredTodos });
+  };
 
   // moves items in todolist up or down depending on "direction" parameter
   moveItem = (todoID, direction) => {
@@ -61,11 +58,13 @@ class App extends Component {
     return (
       <div className="container">
         <h1>TODO - List</h1>
-        <CreatePost addToDo={this.addToDo}
-          searchBtn ={this.searchBtn}
-        />
+        <CreatePost addToDo={this.addToDo} searchBtn={this.searchBtn} />
         <PostList
-          todoList={this.state.filteredTodos.length > 0 ? this.state.filteredTodos  : this.state.todos}
+          todoList={
+            this.state.filteredTodos.length > 0
+              ? this.state.filteredTodos
+              : this.state.todos
+          }
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
           moveItem={this.moveItem}
