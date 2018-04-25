@@ -5,7 +5,8 @@ import base from "./base";
 
 class App extends Component {
   state = {
-    todos: []
+    todos: [],
+    filteredTodos: []
   };
 
   componentDidMount() {
@@ -20,14 +21,14 @@ class App extends Component {
   addToDo = todoText => {
     const todos = [...this.state.todos];
     todos.push({ text: todoText, created: Date.now(), done: false });
-    this.setState({ todos });
+    this.setState({ todos, filteredTodos: [] });
   };
 
   deleteToDo = todoID => {
     const todos = [...this.state.todos];
     const index = todos.findIndex(todo => todo.created === todoID);
     todos.splice(index, 1);
-    this.setState({ todos });
+    this.setState({todos });
   };
 
   markAsDone = todoID => {
@@ -37,13 +38,24 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  searchBtn = todoText =>{
+    const todos = [ ...this.state.todos];
+    const filteredTodos = todos.filter(i => i.text.includes(todoText))
+    this.setState({filteredTodos})
+    }
+
+
+  
+
   render() {
     return (
       <div className="container">
         <h1>TODO - List</h1>
-        <CreatePost addToDo={this.addToDo} />
+        <CreatePost addToDo={this.addToDo}
+          searchBtn ={this.searchBtn}
+        />
         <PostList
-          todoList={this.state.todos}
+          todoList={this.state.filteredTodos.length > 0 ? this.state.filteredTodos  : this.state.todos}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
         />

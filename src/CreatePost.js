@@ -8,6 +8,7 @@ class CreatePost extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    this.props.searchBtn(this.state.inputValue)
   };
 
   handleButtonClick = () => {
@@ -35,8 +36,9 @@ class CreatePost extends Component {
             className="waves-effect waves-light btn"
             onClick={this.handleButtonClick}
           >
-            button
+            Add
           </button>
+
         </div>
       </div>
     );
