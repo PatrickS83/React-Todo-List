@@ -10,12 +10,21 @@ const ToDoItem = props => (
       Done
     </button>
     <span> {props.todoText}</span>
-    <button
-      className="waves-effect waves-light btn btn-small todo-delete"
-      onClick={() => props.deleteToDo(props.created)}
-    >
-      Delete
-    </button>
+    <div className="todo-item">
+      <button
+        className="waves-effect waves-light btn btn-small todo-delete"
+        onClick={() => props.deleteToDo(props.created)}
+      >
+        Delete
+      </button>
+      <i className="material-icons">arrow_downward</i>
+      <i
+        className="material-icons"
+        onClick={() => props.moveItemUp(props.created)}
+      >
+        arrow_upward
+      </i>
+    </div>
   </li>
 );
 

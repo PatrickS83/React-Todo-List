@@ -13,6 +13,7 @@ const PostList = props => (
               created={todo.created}
               markAsDone={props.markAsDone}
               done={todo.done}
+              moveItemUp={props.moveItemUp}
             />
           ))
         : null}

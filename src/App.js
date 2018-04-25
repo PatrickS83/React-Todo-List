@@ -37,6 +37,14 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  moveItemUp = todoID => {
+    const todos = [...this.state.todos];
+    const index = todos.findIndex(todo => todo.created === todoID);
+    const [todoItem] = todos.splice(index, 1);
+    todos.splice(index - 1, 0, todoItem);
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="container">
@@ -46,6 +54,7 @@ class App extends Component {
           todoList={this.state.todos}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
+          moveItemUp={this.moveItemUp}
         />
       </div>
     );
