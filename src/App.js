@@ -19,7 +19,7 @@ class App extends Component {
 
   addToDo = todoText => {
     const todos = [...this.state.todos];
-    todos.push({ text: todoText, created: Date.now() });
+    todos.push({ text: todoText, created: Date.now(), done: false });
     this.setState({ todos });
   };
 
