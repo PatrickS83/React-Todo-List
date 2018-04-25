@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import PostList from "./PostList";
 import CreatePost from "./CreatePost";
+import base from "./base";
 
 class App extends Component {
   state = {
-    todos: [
-      { text: "Testitem", created: 43434, done: false },
-      { text: "Testitem2", created: 43434545, done: true }
-    ]
+    todos: []
   };
+
+  componentDidMount() {
+    // the ref is from firebase. Not react ref
+    this.ref = base.syncState(`/todos`, {
+      context: this,
+      state: "todos", // which state you want to sync
+      isArray: true
+    });
+  }
 
   addToDo = todoText => {
     const todos = [...this.state.todos];
