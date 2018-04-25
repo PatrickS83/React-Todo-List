@@ -47,6 +47,16 @@ class App extends Component {
 
   
 
+  // moves items in todolist up or down depending on "direction" parameter
+  moveItem = (todoID, direction) => {
+    const todos = [...this.state.todos];
+    const index = todos.findIndex(todo => todo.created === todoID);
+    const [todoItem] = todos.splice(index, 1);
+    if (direction === "up") todos.splice(index - 1, 0, todoItem);
+    else todos.splice(index + 1, 0, todoItem);
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="container">
@@ -58,6 +68,7 @@ class App extends Component {
           todoList={this.state.filteredTodos.length > 0 ? this.state.filteredTodos  : this.state.todos}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
+          moveItem={this.moveItem}
         />
       </div>
     );
