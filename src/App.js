@@ -30,12 +30,23 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  markAsDone = todoID => {
+    const todos = [...this.state.todos];
+    const index = todos.findIndex(todo => todo.created === todoID);
+    todos[index].done = !todos[index].done;
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="container">
         <h1>TODO - List</h1>
         <CreatePost addToDo={this.addToDo} />
-        <PostList todoList={this.state.todos} deleteToDo={this.deleteToDo} />
+        <PostList
+          todoList={this.state.todos}
+          deleteToDo={this.deleteToDo}
+          markAsDone={this.markAsDone}
+        />
       </div>
     );
   }
