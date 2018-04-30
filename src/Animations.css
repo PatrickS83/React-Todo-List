@@ -1,17 +1,17 @@
-.example-enter {
+.todoItem-enter {
   opacity: 0.01;
 }
 
-.example-enter.example-enter-active {
+.todoItem-enter.todoItem-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
 
-.example-leave {
+.todoItem-leave {
   opacity: 1;
 }
 
-.example-leave.example-leave-active {
+.todoItem-leave.todoItem-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
