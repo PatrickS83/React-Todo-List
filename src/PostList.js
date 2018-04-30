@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSTransitionGroup } from "react-transition-group";
 import ToDoItem from "./ToDoItem";
+import "./Animations.css";
 
 const PostList = props => {
   const todoItems = props.todoList.length
@@ -20,7 +21,16 @@ const PostList = props => {
     : null;
   return (
     <div className="card">
-      <ul className="collection">{todoItems}</ul>
+      <ul className="collection">
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionAppear
+        >
+          {todoItems}
+        </CSSTransitionGroup>
+      </ul>
     </div>
   );
 };
