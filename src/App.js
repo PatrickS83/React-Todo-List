@@ -37,12 +37,6 @@ class App extends Component {
     this.setState({ todos });
   };
 
-  searchBtn = todoText => {
-    const todos = [...this.state.todos];
-    const filteredTodos = todos.filter(i => i.text.includes(todoText));
-    this.setState({ filteredTodos });
-  };
-
   // moves items in todolist up or down depending on "direction" parameter
   moveItem = (todoID, direction) => {
     const todos = [...this.state.todos];
@@ -65,12 +59,19 @@ class App extends Component {
     return filteredList;
   };
 
+  itemEdit = (e, index) => {
+    const todos = [...this.state.todos];
+    todos[index].text = e.target.value;
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="container">
         <h1>TODO - List</h1>
-        <CreatePost addToDo={this.addToDo} searchBtn={this.searchBtn} />
+        <CreatePost addToDo={this.addToDo} />
         <PostList
+          itemEdit={this.itemEdit}
           todoList={this.filterList()}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}

@@ -1,4 +1,5 @@
 import React from "react";
+import ContentEditable from "react-contenteditable";
 import "./ToDoItem.css";
 
 const ToDoItem = props => (
@@ -9,7 +10,13 @@ const ToDoItem = props => (
     >
       Done
     </button>
-    <span> {props.todoText}</span>
+    <ContentEditable
+      tagName="span"
+      name="inputValue"
+      html={props.todoText} // innerHTML of the editable div
+      disabled={false} // use true to disable edition
+      onChange={(e, index) => props.itemEdit(e, props.index)} // handle innerHTML change
+    />
     <div className="todo-item-buttons">
       <i
         className="material-icons"

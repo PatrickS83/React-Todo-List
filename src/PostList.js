@@ -17,6 +17,7 @@ const PostList = props => {
           done={todo.done}
           index={i}
           moveItem={props.moveItem}
+          itemEdit={props.itemEdit}
         />
       ))
     : null;
