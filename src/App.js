@@ -48,16 +48,19 @@ class App extends Component {
     const todos = [...this.state.todos];
     const index = todos.findIndex(todo => todo.created === todoID);
     const [todoItem] = todos.splice(index, 1);
+    this.setState({ todos });
     if (direction === "up") todos.splice(index - 1, 0, todoItem);
     else todos.splice(index + 1, 0, todoItem);
-    this.setState({ todos });
+    setTimeout(() => {
+      this.setState({ todos });
+    }, 200);
   };
 
   filterList = () => {
     const path = this.props.history.location.pathname.substr(1);
     let filteredList = [...this.state.todos];
     if (path === "showDone")
-      filteredList = filteredList.filter(todo => todo.done === true);
+      filteredList = filteredList.filter(todo => todo.done);
     if (path === "sortAsc")
       filteredList = filteredList.sort((a, b) => a.text.localeCompare(b.text));
     if (path === "sortDesc")

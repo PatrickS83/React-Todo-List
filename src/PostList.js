@@ -26,9 +26,9 @@ const PostList = props => {
       <ul className="collection">
         <CSSTransitionGroup
           transitionName="todoItem"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-          transitionAppearTimeout={0}
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}
+          transitionAppearTimeout={200}
           transitionAppear
         >
           {todoItems}
