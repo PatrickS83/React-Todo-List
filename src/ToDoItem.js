@@ -12,7 +12,6 @@ const ToDoItem = props => (
     </button>
     <ContentEditable
       tagName="span"
-      name="inputValue"
       html={props.todoText} // innerHTML of the editable div
       disabled={false} // use true to disable edition
       onChange={(e, index) => props.itemEdit(e, props.index)} // handle innerHTML change
