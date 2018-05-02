@@ -54,17 +54,17 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  filterList = () => {
+    const filteredList = [...this.state.todos];
+  };
+
   render() {
     return (
       <div className="container">
         <h1>TODO - List</h1>
         <CreatePost addToDo={this.addToDo} searchBtn={this.searchBtn} />
         <PostList
-          todoList={
-            this.state.filteredTodos.length > 0
-              ? this.state.filteredTodos
-              : this.state.todos
-          }
+          todoList={this.state.todos}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
           moveItem={this.moveItem}

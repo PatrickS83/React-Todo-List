@@ -4,6 +4,7 @@ class CreatePost extends Component {
   state = {
     inputValue: ""
   };
+
   Change = e => {
     this.setState({
       [e.target.name]: e.target.value
