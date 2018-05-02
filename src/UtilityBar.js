@@ -1,14 +1,27 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
 const buttonStyle = "btn btn-small waves-effect waves-light";
 
-const UtilityBar = () => (
-  <div className="">
-    <button className={buttonStyle}>show done</button>
-    <button className={buttonStyle}>sort asc</button>
-    <button className={buttonStyle}>sort desc</button>
-    <button className={buttonStyle}>show all</button>
-  </div>
-);
+const UtilityBar = props => {
+  const path = props.location.pathname.substr(1);
 
-export default UtilityBar;
+  return (
+    <div className="">
+      <Link to={path === "showDone" ? "/" : "/showDone"}>
+        <button className={buttonStyle}>show done</button>
+      </Link>
+      <Link to={`/sortAsc`}>
+        <button className={buttonStyle}>Sort Asc</button>
+      </Link>
+      <Link to={`/sortDesc`}>
+        <button className={buttonStyle}>Sort Desc</button>
+      </Link>
+      <Link to={`/`}>
+        <button className={buttonStyle}>Show All</button>
+      </Link>
+    </div>
+  );
+};
+
+export default withRouter(UtilityBar);
