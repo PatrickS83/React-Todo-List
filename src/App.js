@@ -48,12 +48,9 @@ class App extends Component {
     const todos = [...this.state.todos];
     const index = todos.findIndex(todo => todo.created === todoID);
     const [todoItem] = todos.splice(index, 1);
-    this.setState({ todos });
     if (direction === "up") todos.splice(index - 1, 0, todoItem);
     else todos.splice(index + 1, 0, todoItem);
-    setTimeout(() => {
-      this.setState({ todos });
-    }, 200);
+    this.setState({ todos });
   };
 
   filterList = () => {
