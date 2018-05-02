@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 import PostList from "./PostList";
 import CreatePost from "./CreatePost";
 import base from "./base";
@@ -55,7 +54,15 @@ class App extends Component {
   };
 
   filterList = () => {
-    const filteredList = [...this.state.todos];
+    const path = this.props.history.location.pathname.substr(1);
+    let filteredList = [...this.state.todos];
+    if (path === "showDone")
+      filteredList = filteredList.filter(todo => todo.done === true);
+    if (path === "sortAsc")
+      filteredList = filteredList.sort((a, b) => a.text.localeCompare(b.text));
+    if (path === "sortDesc")
+      filteredList = filteredList.sort((a, b) => b.text.localeCompare(a.text));
+    return filteredList;
   };
 
   render() {
@@ -64,7 +71,7 @@ class App extends Component {
         <h1>TODO - List</h1>
         <CreatePost addToDo={this.addToDo} searchBtn={this.searchBtn} />
         <PostList
-          todoList={this.state.todos}
+          todoList={this.filterList()}
           deleteToDo={this.deleteToDo}
           markAsDone={this.markAsDone}
           moveItem={this.moveItem}
