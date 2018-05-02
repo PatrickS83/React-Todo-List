@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import PostList from "./PostList";
 import CreatePost from "./CreatePost";
 import base from "./base";
 
 class App extends Component {
   state = {
-    todos: [],
-    filteredTodos: []
+    todos: []
   };
 
   componentDidMount() {
