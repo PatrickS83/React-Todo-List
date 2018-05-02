@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSTransitionGroup } from "react-transition-group";
 import ToDoItem from "./ToDoItem";
+import UtilityBar from "./UtilityBar";
 import "./Animations.css";
 
 const PostList = props => {
@@ -21,6 +22,7 @@ const PostList = props => {
     : null;
   return (
     <div className="card">
+      <UtilityBar />
       <ul className="collection">
         <CSSTransitionGroup
           transitionName="todoItem"
