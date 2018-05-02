@@ -20,6 +20,10 @@ const UtilityBar = props => {
       <Link to={`/`}>
         <button className={buttonStyle}>Show All</button>
       </Link>
+      <span className="badge">Total Items: {props.todoList.length}</span>
+      <span className="badge">
+        Items done: {props.todoList.reduce((a, b) => a + b.done, 0)}
+      </span>
     </div>
   );
 };

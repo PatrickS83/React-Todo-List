@@ -22,7 +22,7 @@ const PostList = props => {
     : null;
   return (
     <div className="card">
-      <UtilityBar />
+      <UtilityBar todoList={props.todoList} />
       <ul className="collection">
         <CSSTransitionGroup
           transitionName="todoItem"
