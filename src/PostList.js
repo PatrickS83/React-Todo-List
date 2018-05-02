@@ -28,6 +28,7 @@ const PostList = props => {
           transitionName="todoItem"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
+          transitionAppearTimeout={0}
           transitionAppear
         >
           {todoItems}
